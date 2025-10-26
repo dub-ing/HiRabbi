@@ -5,6 +5,7 @@ import {
 } from "react-icons/bs";
 import Button from "./Button";
 import Nav from "./Nav";
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -98,6 +99,7 @@ function Home() {
         </a>
         <img src="bibleOpen.jpg" class='h-[200px] object-center rounded-2xl' alt="" />
       </div>
+      <Footer />
     </>
   );
 }
