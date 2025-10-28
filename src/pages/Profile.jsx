@@ -1,8 +1,8 @@
+import UserProfile from "../features/account/UserProfile"
+
 function Profile() {
     return (
-        <div>
-            Profile
-        </div>
+        <UserProfile />
     )
 }
 
