@@ -34,7 +34,7 @@ function DashboardLayout() {
           {questions.map((question) => (
             <div key={question.id} class="py-2 flex items-center justify-start gap-4">
               <img
-                src="memberGirl.png"
+                src={question.imgUrl}
                 alt="a girl"
                 class="w-14 h-14 rounded-full"
               />
