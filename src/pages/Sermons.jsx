@@ -1,8 +1,8 @@
+import SermonLayout from "../features/sermons/SermonLayout"
+
 function Sermons() {
     return (
-        <div>
-            Sermon
-        </div>
+        <SermonLayout />
     )
 }
 
