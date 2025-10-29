@@ -1,8 +1,8 @@
+import DashboardLayout from "../features/dashboard/DashboardLayout"
+
 function Dashboard() {
     return (
-        <div>
-            Dashboard
-        </div>
+        <DashboardLayout />
     )
 }
 

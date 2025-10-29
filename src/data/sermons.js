@@ -23,7 +23,7 @@ export const sermons = [
       {
         question: "How do i know what to say when i am guilt filled ?",
         date: "Aug 27 2025",
-        id: 1,
+        id: 2,
         name: "John Wick",
         answer: "",
         upvotes: 1,
@@ -45,7 +45,7 @@ export const sermons = [
       {
         question: "How do i know what to say when i am guilt filled ?",
         date: "Sep 3 2025",
-        id: 1,
+        id: 3,
         name: "Delilah Esther",
         answer:
           "ipsum dolor sit amet consectetur adipisicing elit. Eum amet corrupti unde repudiandae voluptatem natus quasi eos nam ut quas omnis sapiente tempora eaque et velit, culpa inventore autem error aliquid qui",
@@ -55,7 +55,7 @@ export const sermons = [
       {
         question: "How do i know what to say when i am guilt filled ?",
         date: "Sep 4 2025",
-        id: 2,
+        id: 4,
         name: "Nathan Vick",
         answer: "",
         upvotes: 1,
@@ -64,7 +64,7 @@ export const sermons = [
       {
         question: "How do i know what to say when i am guilt filled ?",
         date: "Sep 3 2025",
-        id: 3,
+        id: 5,
         name: "Delilah Esther",
         answer:
           "ipsum dolor sit amet consectetur adipisicing elit. Eum amet corrupti unde repudiandae voluptatem natus quasi eos nam ut quas omnis sapiente tempora eaque et velit, culpa inventore autem error aliquid qui",
@@ -74,7 +74,7 @@ export const sermons = [
       {
         question: "How do i know what to say when i am guilt filled ?",
         date: "Sep 3 2025",
-        id: 4,
+        id: 6,
         name: "John Wick",
         answer: "",
         upvotes: 10,

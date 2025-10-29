@@ -3,6 +3,7 @@ import {
   FaQuestionCircle,
 } from "react-icons/fa";
 import Title from "../../ui/Title";
+import InfoTitle from "../../ui/InfoTitle";
 function NotificationInfo() {
   return (
     <div class="px-4 py-3">
@@ -13,30 +14,22 @@ function NotificationInfo() {
       </div>
       <div>
         <div class="w-full flex items-center justify-start gap-4 py-2">
-          <div class="w-12 h-12 bg-gray-200 py-3 px-3 rounded-lg">
+          <div class="w-12 h-12 bg-[#E8F6FF] py-3 px-3 rounded-lg">
             <FaQuestionCircle size="1.5rem" color="#152946" />
           </div>
-          <div>
-            <h3 class="text-lg text-[#0D121C] font-medium leading-6">
-              New Questions
-            </h3>
-            <span class="text-sm text-[#4F6E94] font-normal">
-              Recieve notifications for new questions
-            </span>
-          </div>
+          <InfoTitle
+            subtitle="New Questions"
+            text="Recieve notifications for new questions"
+          />
         </div>
         <div class="w-full flex items-center justify-start gap-4 py-2">
-          <div class="w-12 h-12 bg-gray-200 py-3 px-3 rounded-lg">
+          <div class="w-12 h-12 bg-[#E8F6FF] py-3 px-3 rounded-lg">
             <FaComment size="1.5rem" color="#152946" />
           </div>
-          <div>
-            <h3 class="text-lg text-[#0D121C] font-medium leading-6">
-              Answers to Questions
-            </h3>
-            <span class="text-sm text-[#4F6E94] font-normal">
-              Recieve notifications for answers to your questions
-            </span>
-          </div>
+          <InfoTitle
+            subtitle="Answers to Questions"
+            text="Recieve notifications for answers to your questions"
+          />
         </div>
       </div>
     </div>
