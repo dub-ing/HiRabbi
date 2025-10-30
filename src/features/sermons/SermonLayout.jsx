@@ -1,7 +1,9 @@
 
+import { MdClose } from "react-icons/md";
 import { sermons } from "../../data/sermons";
 import Title from "../../ui/Title";
 import Sermon from "./Sermon";
+import AddSermon from "./AddSermon";
 
 function SermonLayout() {
   return (
@@ -15,6 +17,7 @@ function SermonLayout() {
       {sermons.map((sermon) => (
         <Sermon sermon={sermon} key={sermon.id} />
       ))}
+      <AddSermon />
     </>
   );
 }
