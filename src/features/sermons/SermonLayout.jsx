@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { sermons } from "../../data/sermons";
+// import { sermons } from "../../data/sermons";
 import Title from "../../ui/Title";
 import Sermon from "./Sermon";
 import AddSermon from "./AddSermon";
+import { useSermons } from "./useSermons";
 
 function SermonLayout() {
   const [openModal, setOpenModal] = useState(false);
+  const {data: sermons} = useSermons()
+  
   function handleClick() {
     setOpenModal(!openModal);
   }
@@ -23,7 +26,7 @@ function SermonLayout() {
         </button>
       </div>
       <div class="w-full h-[73vh] my-2 overflow-scroll">
-        {sermons.map((sermon) => (
+        {sermons?.map((sermon) => (
           <Sermon sermon={sermon} key={sermon.id} />
         ))}
       </div>

@@ -1,18 +1,18 @@
 import { FaCalendarDay, FaCheckCircle, FaComment } from "react-icons/fa";
 import Title from "../../ui/Title";
 function Sermon({ sermon }) {
-    const {topic, pastor, date, description, image, questions} = sermon
+    const {date, numAnswered, numQuestions, preacher, summary, title} = sermon
   return (
     <div class="py-6 my-3 px-6 border border-gray-200 rounded-xl bg-[#E8F6FF]">
       <div class="flex flex-col items-start justify-between gap-3">
         <div class='w-full flex items-center justify-between'>
           <Title color="gray-800" size="lg" font="bold">
-            {topic}
+            {title}
           </Title>
-          <img class='w-10' src={image} alt="" />
+          <img class='w-10' src='memberGirl.png' alt="" />
         </div>
         <div class="flex items-center justify-between gap-6">
-          <h4 class="text-xs text-[#4F6E94] font-normal">{pastor}</h4>
+          <h4 class="text-xs text-[#4F6E94] font-normal">{preacher}</h4>
           <div class="flex justify-between gap-2">
             <FaCalendarDay color="#4F6E94" size="12px" />
             <span class="text-xs text-[#4F6E94] font-normal">
@@ -21,18 +21,16 @@ function Sermon({ sermon }) {
           </div>
         </div>
         <p class="text-sm text-[#4F6E94] font-normal">
-          {description.slice(0, 50)}
+          {summary}
         </p>
         <div class="text-xs text-[#4F6E94] font-normal flex items-center gap-6">
           <div class="flex items-center gap-2">
             <FaComment />
-            <span>{`${
-              questions ? questions.length : 0
-            } total questions`}</span>
+            <span>{`${numQuestions} total questions`}</span>
           </div>
           <div class="flex items-center gap-2 text-green-600">
             <FaCheckCircle />
-            <span>8 answered</span>
+            <span>{`${numAnswered} answered`}</span>
           </div>
         </div>
         <div class="w-full border-t border-gray-200 pt-4 flex justify-between gap-4">
