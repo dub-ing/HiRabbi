@@ -6,7 +6,6 @@ import Title from "../../ui/Title";
 
 function AddSermon({ handleClick }) {
   const [initialSermons, setInitialSermons] = useState(sermons);
-  console.log(initialSermons);
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
   function onSubmit(data) {

@@ -4,14 +4,16 @@ import Title from "../../ui/Title";
 import Sermon from "./Sermon";
 import AddSermon from "./AddSermon";
 import { useSermons } from "./useSermons";
+import Spinner from "../../ui/Spinner";
 
 function SermonLayout() {
   const [openModal, setOpenModal] = useState(false);
-  const {data: sermons} = useSermons()
+  const {data: sermons, isPending:isLoading} = useSermons()
   
   function handleClick() {
     setOpenModal(!openModal);
   }
+  if(isLoading) return <Spinner />
   return (
     <>
       <div class="flex items-center justify-between">
