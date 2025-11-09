@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { sermons } from "../../data/sermons";
 import Title from "../../ui/Title";
 import Sermon from "./Sermon";
 import AddSermon from "./AddSermon";
@@ -10,7 +9,7 @@ function SermonLayout() {
   const [openModal, setOpenModal] = useState(false);
   const {data: sermons, isPending:isLoading} = useSermons()
   
-  function handleClick() {
+  function handleCloseModal() {
     setOpenModal(!openModal);
   }
   if(isLoading) return <Spinner />
@@ -21,7 +20,7 @@ function SermonLayout() {
           Manage Sermons
         </Title>
         <button
-          onClick={handleClick}
+          onClick={handleCloseModal}
           class="px-6 py-2 bg-orange-400 rounded-lg"
         >
           Add Sermon
@@ -32,8 +31,8 @@ function SermonLayout() {
           <Sermon sermon={sermon} key={sermon.id} />
         ))}
       </div>
-        <div>more</div>
-      {openModal && <AddSermon handleClick={handleClick} />}
+      <div>more</div>
+      {openModal && <AddSermon handleCloseModal={handleCloseModal} />}
     </>
   );
 }
