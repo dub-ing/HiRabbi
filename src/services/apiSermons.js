@@ -26,11 +26,11 @@ export async function createSermon(sermon) {
 }
 
 // EDIT SERMON
-export async function editSermon(editSermon, editId) {
+export async function editSermon(editedSermon, id) {
   const { data, error } = await supabase
     .from("sermons")
-    .update({ ...editSermon })
-    .eq("id", editId)
+    .update({ ...editedSermon })
+    .eq("id", id)
     .select();
 
   if (error) {
@@ -41,7 +41,7 @@ export async function editSermon(editSermon, editId) {
 }
 
 // DELETE SERMONS
-export async function deleteSermon(deleteSermon, id) {
+export async function deleteSermon(id) {
 const { error } = await supabase
   .from("sermons")
   .delete()

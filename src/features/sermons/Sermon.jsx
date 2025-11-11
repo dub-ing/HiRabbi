@@ -1,11 +1,13 @@
-import { FaCalendarDay, FaCheckCircle, FaComment } from "react-icons/fa";
+import { useState } from "react";
 import Title from "../../ui/Title";
 import AddSermon from "./AddSermonForm";
-import { useState } from "react";
-import { deleteSermon } from "../../services/apiSermons";
 import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+// import { deleteSermon } from "../../services/apiSermons";
+import { FaCalendarDay, FaCheckCircle, FaComment } from "react-icons/fa";
 function Sermon({ sermon }) {
   const [showForm, setShowForm] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const { id, date, numAnswered, numQuestions, preacher, summary, title } =
     sermon;
   function handleCloseModal() {
@@ -50,7 +52,7 @@ function Sermon({ sermon }) {
               Edit
             </button>
             <button
-              onClick={() => deleteSermon(sermon, id)}
+              onClick={() => setDeleteModal((deleteModal) => !deleteModal)}
               class="w-1/3 px-4 py-2 bg-red-400 rounded-lg"
             >
               Delete
@@ -61,6 +63,14 @@ function Sermon({ sermon }) {
       {showForm && (
         <Modal closeModal={handleCloseModal}>
           <AddSermon sermonEdit={sermon} handleCloseModal={handleCloseModal} />
+        </Modal>
+      )}
+      {deleteModal && (
+        <Modal closeModal={() => setDeleteModal((deleteModal) => !deleteModal)}>
+          <ConfirmDelete
+            sermonId={id}
+            closeModal={() => setDeleteModal((deleteModal) => !deleteModal)}
+          />
         </Modal>
       )}
     </>
