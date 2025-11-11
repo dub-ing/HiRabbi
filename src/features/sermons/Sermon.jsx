@@ -1,13 +1,15 @@
 import { FaCalendarDay, FaCheckCircle, FaComment } from "react-icons/fa";
 import Title from "../../ui/Title";
-import AddSermon from "./AddSermon";
+import AddSermon from "./AddSermonForm";
 import { useState } from "react";
 import { deleteSermon } from "../../services/apiSermons";
+import Modal from "../../ui/Modal";
 function Sermon({ sermon }) {
-  const [showForm, setShowForm] = useState(false)
-  const { id, date, numAnswered, numQuestions, preacher, summary, title } = sermon;
+  const [showForm, setShowForm] = useState(false);
+  const { id, date, numAnswered, numQuestions, preacher, summary, title } =
+    sermon;
   function handleCloseModal() {
-    setShowForm(!showForm)
+    setShowForm(!showForm);
   }
   return (
     <>
@@ -47,14 +49,19 @@ function Sermon({ sermon }) {
             >
               Edit
             </button>
-            <button onClick={()=>deleteSermon(sermon, id)} class="w-1/3 px-4 py-2 bg-red-400 rounded-lg">
+            <button
+              onClick={() => deleteSermon(sermon, id)}
+              class="w-1/3 px-4 py-2 bg-red-400 rounded-lg"
+            >
               Delete
             </button>
           </div>
         </div>
       </div>
       {showForm && (
-        <AddSermon sermonEdit={sermon} handleCloseModal={handleCloseModal} />
+        <Modal closeModal={handleCloseModal}>
+          <AddSermon sermonEdit={sermon} handleCloseModal={handleCloseModal} />
+        </Modal>
       )}
     </>
   );
