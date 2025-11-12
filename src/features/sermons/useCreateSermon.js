@@ -21,6 +21,7 @@ export function useCreateSermon() {
       console.log(error);
     },
   });
+  // log
 
   return { isPending, error, createSermonAPI };
 }
