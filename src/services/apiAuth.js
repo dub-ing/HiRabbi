@@ -23,3 +23,24 @@ export async function getCurrentUser() {
   
   return data?.user;
 }
+
+// Sign Up Function
+export async function signUp({email, password, fullName}) {
+  
+let { data, error } = await supabase.auth.signUp({
+  email,
+  password,
+  options: {
+    data: {
+      fullName,
+      avatar: ''
+    }
+  }
+});
+if(error) {
+  console.error(error)
+  throw new Error
+}
+console.log(data);
+return data
+}

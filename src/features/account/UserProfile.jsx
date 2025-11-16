@@ -1,8 +1,15 @@
 import { HiUser } from "react-icons/hi";
 import Title from "../../ui/Title";
 import Button from "../../ui/Button";
+import { useProfile } from "../authentication/useProfile";
 
 function UserProfile() {
+  const {
+    profile: {email, user_metadata },
+  } = useProfile();
+  const {avatar, fullName} = user_metadata
+  console.log(avatar);
+
   return (
     <>
       <div class="flex flex-col items-center justify-between text-center gap-4 py-4">
@@ -14,7 +21,7 @@ function UserProfile() {
             Pastor Wick
           </Title>
           <span class="text-gray-400 text-sm font-normal">
-            savedbychrist@heaven.com
+            {email}
           </span>
         </div>
       </div>
@@ -26,6 +33,7 @@ function UserProfile() {
           <input
             type="text"
             class="disabled:bg-[#E8EDF2] w-full py-2 px-4 rounded-lg"
+            value={fullName}
             disabled
           />
         </div>
@@ -36,6 +44,7 @@ function UserProfile() {
           <input
             type="email"
             class="disabled:bg-[#E8EDF2] w-full py-2 px-4 rounded-lg"
+            value={email}
             disabled
           />
         </div>
@@ -50,7 +59,9 @@ function UserProfile() {
           />
         </div>
         <div class="w-full py-4 text-right">
-            <Button bgColor='bg-gray-900' color='text-white' width='w-1/3'>Save Changes</Button>
+          <Button bgColor="bg-gray-900" color="text-white" width="w-1/3">
+            Save Changes
+          </Button>
         </div>
       </div>
     </>
