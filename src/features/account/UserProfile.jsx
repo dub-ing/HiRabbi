@@ -5,10 +5,9 @@ import { useProfile } from "../authentication/useProfile";
 
 function UserProfile() {
   const {
-    profile: {email, user_metadata },
+    profile: { email, user_metadata },
   } = useProfile();
-  const {avatar, fullName} = user_metadata
-  console.log(avatar);
+  const { fullName } = user_metadata;
 
   return (
     <>
@@ -20,9 +19,7 @@ function UserProfile() {
           <Title color="gray-900" size="2xl" font="bold">
             Pastor Wick
           </Title>
-          <span class="text-gray-400 text-sm font-normal">
-            {email}
-          </span>
+          <span class="text-gray-400 text-sm font-normal">{email}</span>
         </div>
       </div>
       <div class="">

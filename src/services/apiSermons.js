@@ -13,6 +13,8 @@ export async function getSermons() {
 
 // ADD SERMON
 export async function createSermon(sermon) {
+  console.log(sermon);
+  
   const { data, error } = await supabase
     .from("sermons")
     .insert([{ ...sermon }])
@@ -22,6 +24,7 @@ export async function createSermon(sermon) {
     console.error(error);
     throw new Error("sermon could not be created");
   }
+  
   return data;
 }
 

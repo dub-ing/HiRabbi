@@ -4,23 +4,28 @@ import Title from "../../ui/Title";
 import { useCreateSermon } from "./useCreateSermon";
 import Spinner from "../../ui/Spinner";
 import { useEditSermon } from "./useEditSermon";
+import { useProfile } from "../authentication/useProfile";
 
 function AddSermonForm({ sermonEdit = {}, handleCloseModal }) {
+  
   const { isPending: isCreating, createSermonAPI } = useCreateSermon();
-  const {isEditing, editSermonAPI} = useEditSermon()
+  const { isEditing, editSermonAPI } = useEditSermon();
   const { id: editId, ...editValues } = sermonEdit;
   const isEditSession = Boolean(editId);
-  const isLoading = isEditing || isCreating
+  const isLoading = isEditing || isCreating;
   const { register, handleSubmit, formState, reset } = useForm({
     defaultValues: isEditSession ? editValues : {},
   });
-  const { errors } = formState;
+  const { errors } = formState;const {
+    profile : {id}
+  } = useProfile();
   function onSubmit(data) {
     if (isEditSession) {
-      editSermonAPI({editedSermon: {...data}, id: editId});
-      handleCloseModal?.()
+      editSermonAPI({ editedSermon: { ...data }, id: editId });
+      handleCloseModal?.();
     } else {
-      createSermonAPI(data);
+      let newSermon = { ...data, user_id: id };
+      createSermonAPI(newSermon);
       reset();
       handleCloseModal?.();
     }

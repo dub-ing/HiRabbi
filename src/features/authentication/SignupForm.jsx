@@ -1,16 +1,19 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
-import { signUp } from "../../services/apiAuth";
+import { useSignup } from "./useSignup";
+import Spinner from "../../ui/Spinner";
 
 function SignupForm() {
   const { handleSubmit, register, formState, getValues } = useForm();
+  const { isPending, signup } = useSignup();
   const { errors } = formState;
 
   function onSubmit(data) {
     console.log(data);
-    const {email, password, fullName} = data
-    signUp({email, password, fullName})
+    const { email, password, fullName } = data;
+    signup({ email, password, fullName });
   }
+  if (isPending) return <Spinner />;
   return (
     <div class="w-full flex flex-col justify-between h-full">
       <form
@@ -31,6 +34,7 @@ function SignupForm() {
               name="fullName"
               type="text"
               id="fullName"
+              disabled={isPending}
               placeholder="first name and last name"
               {...register("fullName", {
                 required: "This field is required",
@@ -52,6 +56,7 @@ function SignupForm() {
               }  disabled:bg-gray-500 disabled:cursor-not-allowed`}
               name="email"
               type="email"
+              disabled={isPending}
               placeholder="first name and last name"
               {...register("email", {
                 required: "This field is required",
@@ -76,6 +81,7 @@ function SignupForm() {
               name="password"
               type="password"
               id="password"
+              disabled={isPending}
               placeholder="create a password"
               {...register("password", {
                 required: "This field is required",
@@ -102,6 +108,7 @@ function SignupForm() {
               } disabled:bg-gray-500 disabled:cursor-not-allowed`}
               name="confirmPassword"
               type="password"
+              disabled={isPending}
               placeholder="first name and last name"
               {...register("confirmPassword", {
                 required: "This field is required",
@@ -129,7 +136,7 @@ function SignupForm() {
         <p class="text-xs font-500">
           Have an account ?{" "}
           <span class="text-purple-deep">
-            <Link to="/signin">Log in</Link>
+            <Link to="/login">Log in</Link>
           </span>
         </p>
       </div>
