@@ -30,7 +30,7 @@ function DashboardLayout() {
             Recent Questions
           </Title>
         </div>
-        <div class='w-full h-[40vh] flex flex-col items-start justify-between gap-4 overflow-scroll'>
+        <div class='w-full h-[40vh] flex flex-col items-start justify-between gap-4 overflow-y-scroll'>
           {questions.map((question) => (
             <div key={question.id} class="py-2 flex items-center justify-start gap-4">
               <img
