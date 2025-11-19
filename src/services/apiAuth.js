@@ -45,7 +45,7 @@ export async function login({ email, password }) {
 }
 
 // Sign Out
-export async function signOut() {
+export async function logout() {
   let { error } = await supabase.auth.signOut();
   if(error) {
     console.error(error)
